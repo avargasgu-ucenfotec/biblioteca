@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+//La clase "Biblioteca" es una abstracción de un sistema de gestión de bibliotecas, donde cada biblioteca tiene un
+//nombre y una lista de libros, que representa las colecciones físicas de libros.
+
 public class Biblioteca {
 
     //Atributo

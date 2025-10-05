@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+//La clase "Usuario" es una abstracción de una persona que desea utilizar lo servicios de una biblioteca, principalmente
+//el retiro de libros por un tiempo definido.
+
 public class Usuario {
 
     //Atributos

@@ -1,3 +1,6 @@
+//La clase "Libro" es una abstracción de un libro físico, que en el contexto de la biblioteca, puede ser almacenado en
+//una biblioteca o retirado por un usuario, a modo de reserva temporal.
+
 public class Libro {
 
     //Atributo

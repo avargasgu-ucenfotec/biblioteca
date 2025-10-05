@@ -1,3 +1,6 @@
+//La clase "Carnet" es una abstracción de un documento que permite a una persona ser usuaria de una biblioteca. Dicho
+//documento puede ser físico o virtual.
+
 public class Carnet {
 
     //Atributo
