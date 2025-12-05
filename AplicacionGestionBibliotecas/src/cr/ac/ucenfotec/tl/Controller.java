@@ -15,7 +15,7 @@ public class Controller {
                 agregarCliente();
                 break;
             case 3:
-                //agregarLibro();
+                agregarLibro();
                 break;
             case 0:
                 System.out.println("Cerrando el programa...");
@@ -55,13 +55,19 @@ public class Controller {
 
         System.out.println(GestorCliente.agregarCliente(nombreCompleto, cedula, correoElectronico));
     }
-    /*
+
     public static void agregarLibro() throws Exception {
-        double porcentajeInteres;
+        String titulo;
+        String autor;
+        int cantidad;
 
-        System.out.print("Ingrese el porcentaje de interés de la cuenta de ahorro: ");
-        porcentajeInteres = Double.parseDouble(Menu.leerTexto());
+        System.out.print("Ingrese el título del libro: ");
+        titulo = Menu.leerTexto();
+        System.out.print("Ingrese el autor del libro: ");
+        autor = Menu.leerTexto();
+        System.out.print("Ingrese la cantidad de libros: ");
+        cantidad = Integer.parseInt(Menu.leerTexto());
 
-        System.out.println(GestorAhorro.agregarAhorro(100.0, true, porcentajeInteres));
-    }*/
+        System.out.println(GestorLibro.agregarLibro(titulo, autor, cantidad));
+    }
 }
