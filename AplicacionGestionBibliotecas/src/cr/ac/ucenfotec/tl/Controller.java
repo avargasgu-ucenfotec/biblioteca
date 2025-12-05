@@ -12,7 +12,7 @@ public class Controller {
                 agregarAdministrador();
                 break;
             case 2:
-                //agregarCliente();
+                agregarCliente();
                 break;
             case 3:
                 //agregarLibro();
@@ -40,31 +40,22 @@ public class Controller {
 
         System.out.println(GestorAdministrador.agregarAdministrador(nombreCompleto, cedula, correoElectronico));
     }
-/*
+
     public static void agregarCliente() throws Exception {
         String nombreCompleto;
         String cedula;
-        String sexo;
         String correoElectronico;
-        String profesion;
-        String direccion;
 
         System.out.print("Ingrese el nombre completo del cliente: ");
         nombreCompleto = Menu.leerTexto();
         System.out.print("Ingrese el número de cédula del cliente: ");
         cedula = Menu.leerTexto();
-        System.out.print("Ingrese el sexo del cliente: ");
-        sexo = Menu.leerTexto();
         System.out.print("Ingrese el correo electrónico del cliente: ");
         correoElectronico = Menu.leerTexto();
-        System.out.print("Ingrese la profesión del cliente: ");
-        profesion = Menu.leerTexto();
-        System.out.print("Ingrese la dirección del cliente: ");
-        direccion = Menu.leerTexto();
 
-        System.out.println(GestorCliente.agregarCliente(nombreCompleto, cedula, sexo, correoElectronico, profesion, direccion));
+        System.out.println(GestorCliente.agregarCliente(nombreCompleto, cedula, correoElectronico));
     }
-
+    /*
     public static void agregarLibro() throws Exception {
         double porcentajeInteres;
 
