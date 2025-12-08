@@ -1,5 +1,6 @@
 package cr.ac.ucenfotec.bl.logic;
 
+import cr.ac.ucenfotec.bl.entities.administrador.DAOAdministrador;
 import cr.ac.ucenfotec.bl.entities.cliente.Cliente;
 import cr.ac.ucenfotec.bl.entities.cliente.DAOCliente;
 
@@ -28,5 +29,9 @@ public class GestorCliente {
     public static String modificarCliente(int idCliente, String nombreCompleto, String cedula, String correoElectronico) throws Exception {
         Cliente nuevoCliente = new Cliente(nombreCompleto, cedula, correoElectronico);
         return DAOCliente.modificarCliente(idCliente, nuevoCliente);
+    }
+
+    public static String eliminarCliente(int idCliente) throws Exception {
+        return DAOCliente.eliminarCliente(idCliente);
     }
 }

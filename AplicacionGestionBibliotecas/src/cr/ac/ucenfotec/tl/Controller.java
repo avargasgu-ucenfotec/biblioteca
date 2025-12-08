@@ -44,6 +44,9 @@ public class Controller {
             case 10:
                 eliminarAdministrador();
                 break;
+            case 11:
+                eliminarCliente();
+                break;
             case 0:
                 System.out.println("Cerrando el programa...");
                 break;
@@ -210,6 +213,19 @@ public class Controller {
             idAdministrador = Integer.parseInt(Menu.leerTexto());
         }
         String mensaje = GestorAdministrador.eliminarAdministrador(idAdministrador);
+        System.out.println(mensaje);
+    }
+
+    public static void eliminarCliente() throws Exception {
+        listarClientes();
+        int idCliente;
+        System.out.print("Ingrese el ID del cliente por eliminar: ");
+        idCliente = Integer.parseInt(Menu.leerTexto());
+        while (idCliente <= 0) {
+            System.out.println("El ID del cliente debe ser mayor o igual que 1. Ingrese el ID de nuevo: ");
+            idCliente = Integer.parseInt(Menu.leerTexto());
+        }
+        String mensaje = GestorCliente.eliminarCliente(idCliente);
         System.out.println(mensaje);
     }
 }
