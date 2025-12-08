@@ -2,6 +2,7 @@ package cr.ac.ucenfotec.tl;
 
 import cr.ac.ucenfotec.bl.entities.administrador.Administrador;
 import cr.ac.ucenfotec.bl.entities.cliente.Cliente;
+import cr.ac.ucenfotec.bl.entities.libro.Libro;
 import cr.ac.ucenfotec.bl.logic.*;
 import cr.ac.ucenfotec.ui.Menu;
 
@@ -27,6 +28,9 @@ public class Controller {
                 break;
             case 5:
                 listarClientes();
+                break;
+            case 6:
+                listarLibros();
                 break;
             case 0:
                 System.out.println("Cerrando el programa...");
@@ -95,6 +99,14 @@ public class Controller {
         GestorCliente.listarClientesID(listaClientesID);
         for (HashMap.Entry<Integer, Cliente> pareja : listaClientesID.entrySet()) {
             System.out.println("ID: " + pareja.getKey() + ", Cliente: " + pareja.getValue());
+        }
+    }
+
+    public static void listarLibros() throws Exception {
+        HashMap<Integer, Libro> listaLibrosID = new HashMap<>();
+        GestorLibro.listarLibrosID(listaLibrosID);
+        for (HashMap.Entry<Integer, Libro> pareja : listaLibrosID.entrySet()) {
+            System.out.println("ID: " + pareja.getKey() + ", Libro: " + pareja.getValue());
         }
     }
 }
