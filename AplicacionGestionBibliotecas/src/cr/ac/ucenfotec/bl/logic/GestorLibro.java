@@ -1,5 +1,6 @@
 package cr.ac.ucenfotec.bl.logic;
 
+import cr.ac.ucenfotec.bl.entities.cliente.DAOCliente;
 import cr.ac.ucenfotec.bl.entities.libro.Libro;
 import cr.ac.ucenfotec.bl.entities.libro.DAOLibro;
 
@@ -28,5 +29,9 @@ public class GestorLibro {
     public static String modificarLibro(int idLibro, String titulo, String autor, int cantidad) throws Exception {
         Libro nuevoLibro = new Libro(titulo, autor, cantidad);
         return DAOLibro.modificarLibro(idLibro, nuevoLibro);
+    }
+
+    public static String eliminarLibro(int idLibro) throws Exception {
+        return DAOLibro.eliminarLibro(idLibro);
     }
 }

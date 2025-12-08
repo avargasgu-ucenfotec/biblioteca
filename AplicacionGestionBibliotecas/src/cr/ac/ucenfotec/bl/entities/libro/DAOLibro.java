@@ -59,4 +59,10 @@ public class DAOLibro {
                 idLibro);
         return "El cliente se modificó en la base de datos correctamente.\n";
     }
+
+    public static String eliminarLibro(int idLibro) throws Exception {
+        statement = "DELETE FROM t_libros WHERE id = ?";
+        Connector.getConnection().ejecutarStatement(statement, idLibro);
+        return "El libro se eliminó de la base de datos correctamente (si existía).\n";
+    }
 }
