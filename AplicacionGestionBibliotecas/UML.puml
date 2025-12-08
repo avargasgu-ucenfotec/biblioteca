@@ -1,0 +1,154 @@
+@startuml
+class cr.ac.ucenfotec.dl.DBAccess {
+- Connection connection
+- Statement statement
+- PreparedStatement preparedStatement
++ <<Create>> DBAccess(String,String,String)
++ void ejecutarStatement(String)
++ ResultSet ejecutarQuery(String)
++ void ejecutarStatement(String,int)
++ void ejecutarStatement(String,String,String,String,int)
++ void ejecutarStatement(String,String,String,int,int)
+}
+
+
+class cr.ac.ucenfotec.dl.Connector {
+- {static} DBAccess dbConnection
++ {static} DBAccess getConnection()
+}
+
+
+class cr.ac.ucenfotec.bl.entities.libro.DAOLibro {
+- {static} String statement
+- {static} String query
++ {static} String insertarLibro(Libro)
++ {static} ArrayList<Libro> listarLibros()
++ {static} ArrayList<Integer> listarIDs()
++ {static} String modificarLibro(int,Libro)
++ {static} String eliminarLibro(int)
+}
+
+
+class cr.ac.ucenfotec.ui.Menu {
+- {static} BufferedReader entrada
++ {static} void menuPrincipal()
++ {static} String leerTexto()
+}
+
+
+class cr.ac.ucenfotec.bl.entities.libro.Libro {
+- String titulo
+- String autor
+- int cantidad
++ <<Create>> Libro(String,String,int)
++ String getTitulo()
++ String getAutor()
++ int getCantidad()
++ void setTitulo(String)
++ void setAutor(String)
++ void setCantidad(int)
++ String toString()
++ boolean equals(Libro)
+}
+
+
+class cr.ac.ucenfotec.bl.entities.administrador.Administrador {
+- String nombreCompleto
+- String cedula
+- String correoElectronico
++ <<Create>> Administrador(String,String,String)
++ String getNombreCompleto()
++ String getCedula()
++ String getCorreoElectronico()
++ void setNombreCompleto(String)
++ void setCedula(String)
++ void setCorreoElectronico(String)
++ String toString()
++ boolean equals(Administrador)
+}
+
+
+class cr.ac.ucenfotec.bl.entities.administrador.DAOAdministrador {
+- {static} String statement
+- {static} String query
++ {static} String insertarAdministrador(Administrador)
++ {static} ArrayList<Administrador> listarAdministradores()
++ {static} ArrayList<Integer> listarIDs()
++ {static} String modificarAdministrador(int,Administrador)
++ {static} String eliminarAdministrador(int)
+}
+
+
+class cr.ac.ucenfotec.bl.logic.GestorLibro {
++ {static} String agregarLibro(String,String,int)
++ {static} void listarLibrosID(HashMap<Integer,Libro>)
++ {static} String modificarLibro(int,String,String,int)
++ {static} String eliminarLibro(int)
+}
+
+class cr.ac.ucenfotec.bl.logic.GestorAdministrador {
++ {static} String agregarAdministrador(String,String,String)
++ {static} void listarAdministradoresID(HashMap<Integer,Administrador>)
++ {static} String modificarAdministrador(int,String,String,String)
++ {static} String eliminarAdministrador(int)
+}
+
+class cr.ac.ucenfotec.bl.entities.cliente.DAOCliente {
+- {static} String statement
+- {static} String query
++ {static} String insertarCliente(Cliente)
++ {static} ArrayList<Cliente> listarClientes()
++ {static} ArrayList<Integer> listarIDs()
++ {static} String modificarCliente(int,Cliente)
++ {static} String eliminarCliente(int)
+}
+
+
+class cr.ac.ucenfotec.bl.logic.GestorCliente {
++ {static} String agregarCliente(String,String,String)
++ {static} void listarClientesID(HashMap<Integer,Cliente>)
++ {static} String modificarCliente(int,String,String,String)
++ {static} String eliminarCliente(int)
+}
+
+class cr.ac.ucenfotec.utils.Utils {
++ {static} String[] getPropiedades()
+}
+
+class cr.ac.ucenfotec.tl.Controller {
++ {static} void procesarSeleccionPrincipal(byte)
++ {static} void agregarAdministrador()
++ {static} void agregarCliente()
++ {static} void agregarLibro()
++ {static} void listarAdministradores()
++ {static} void listarClientes()
++ {static} void listarLibros()
++ {static} void modificarAdministrador()
++ {static} void modificarCliente()
++ {static} void modificarLibro()
++ {static} void eliminarAdministrador()
++ {static} void eliminarCliente()
++ {static} void eliminarLibro()
+}
+
+class cr.ac.ucenfotec.bl.entities.cliente.Cliente {
+- String nombreCompleto
+- String cedula
+- String correoElectronico
++ <<Create>> Cliente(String,String,String)
++ String getNombreCompleto()
++ String getCedula()
++ String getCorreoElectronico()
++ void setNombreCompleto(String)
++ void setCedula(String)
++ void setCorreoElectronico(String)
++ String toString()
++ boolean equals(Cliente)
+}
+
+
+class Main {
++ {static} void main(String[])
+}
+
+@enduml

@@ -1,7 +1,5 @@
 package cr.ac.ucenfotec.dl;
 
-import cr.ac.ucenfotec.utils.Utils;
-
 import java.sql.*;
 
 public class DBAccess {

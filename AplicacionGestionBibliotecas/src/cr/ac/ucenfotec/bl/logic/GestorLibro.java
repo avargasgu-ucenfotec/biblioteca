@@ -1,6 +1,5 @@
 package cr.ac.ucenfotec.bl.logic;
 
-import cr.ac.ucenfotec.bl.entities.cliente.DAOCliente;
 import cr.ac.ucenfotec.bl.entities.libro.Libro;
 import cr.ac.ucenfotec.bl.entities.libro.DAOLibro;
 
