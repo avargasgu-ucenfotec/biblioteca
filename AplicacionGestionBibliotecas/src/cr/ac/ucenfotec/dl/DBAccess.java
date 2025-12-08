@@ -37,4 +37,13 @@ public class DBAccess {
         preparedStatement.setInt(4, pValor4);
         preparedStatement.executeUpdate();
     }
+
+    public void ejecutarStatement(String pStatement, String pValor1, String pValor2, int pValor3, int pValor4) throws SQLException {
+        preparedStatement = connection.prepareStatement(pStatement);
+        preparedStatement.setString(1, pValor1);
+        preparedStatement.setString(2, pValor2);
+        preparedStatement.setInt(3, pValor3);
+        preparedStatement.setInt(4, pValor4);
+        preparedStatement.executeUpdate();
+    }
 }

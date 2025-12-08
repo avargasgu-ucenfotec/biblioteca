@@ -1,7 +1,5 @@
 package cr.ac.ucenfotec.bl.logic;
 
-import cr.ac.ucenfotec.bl.entities.administrador.Administrador;
-import cr.ac.ucenfotec.bl.entities.administrador.DAOAdministrador;
 import cr.ac.ucenfotec.bl.entities.libro.Libro;
 import cr.ac.ucenfotec.bl.entities.libro.DAOLibro;
 
@@ -25,5 +23,10 @@ public class GestorLibro {
                 listaLibrosID.putIfAbsent(listaIDs.get(i), listaLibros.get(i));
             }
         }
+    }
+
+    public static String modificarLibro(int idLibro, String titulo, String autor, int cantidad) throws Exception {
+        Libro nuevoLibro = new Libro(titulo, autor, cantidad);
+        return DAOLibro.modificarLibro(idLibro, nuevoLibro);
     }
 }

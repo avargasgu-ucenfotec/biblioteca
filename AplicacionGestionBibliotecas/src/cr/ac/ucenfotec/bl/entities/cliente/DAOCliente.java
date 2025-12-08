@@ -1,6 +1,5 @@
 package cr.ac.ucenfotec.bl.entities.cliente;
 
-import cr.ac.ucenfotec.bl.entities.administrador.Administrador;
 import cr.ac.ucenfotec.dl.Connector;
 
 import java.sql.ResultSet;

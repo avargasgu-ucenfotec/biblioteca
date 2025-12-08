@@ -38,6 +38,9 @@ public class Controller {
             case 8:
                 modificarCliente();
                 break;
+            case 9:
+                modificarLibro();
+                break;
             case 0:
                 System.out.println("Cerrando el programa...");
                 break;
@@ -165,6 +168,32 @@ public class Controller {
         correoElectronico = Menu.leerTexto();
 
         String mensaje = GestorCliente.modificarCliente(idCliente, nombreCompleto, cedula, correoElectronico);
+        System.out.println(mensaje);
+    }
+
+    public static void modificarLibro() throws Exception {
+        listarLibros();
+        int idLibro;
+
+        System.out.print("Ingrese el ID del libro por modificar: ");
+        idLibro = Integer.parseInt(Menu.leerTexto());
+        while (idLibro <= 0) {
+            System.out.println("El ID del libro debe ser mayor o igual que 1. Ingrese el ID de nuevo: ");
+            idLibro = Integer.parseInt(Menu.leerTexto());
+        }
+
+        String titulo;
+        String autor;
+        int cantidad;
+
+        System.out.print("Ingrese el nuevo título del libro: ");
+        titulo = Menu.leerTexto();
+        System.out.print("Ingrese el nuevo autor del libro: ");
+        autor = Menu.leerTexto();
+        System.out.print("Ingrese la nueva cantidad de libros: ");
+        cantidad = Integer.parseInt(Menu.leerTexto());
+
+        String mensaje = GestorLibro.modificarLibro(idLibro, titulo, autor, cantidad);
         System.out.println(mensaje);
     }
 }

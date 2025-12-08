@@ -1,7 +1,5 @@
 package cr.ac.ucenfotec.bl.logic;
 
-import cr.ac.ucenfotec.bl.entities.administrador.Administrador;
-import cr.ac.ucenfotec.bl.entities.administrador.DAOAdministrador;
 import cr.ac.ucenfotec.bl.entities.cliente.Cliente;
 import cr.ac.ucenfotec.bl.entities.cliente.DAOCliente;
 

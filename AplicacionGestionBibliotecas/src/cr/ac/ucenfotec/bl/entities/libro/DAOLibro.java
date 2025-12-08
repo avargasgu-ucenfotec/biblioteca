@@ -1,6 +1,5 @@
 package cr.ac.ucenfotec.bl.entities.libro;
 
-import cr.ac.ucenfotec.bl.entities.administrador.Administrador;
 import cr.ac.ucenfotec.dl.Connector;
 
 import java.sql.ResultSet;
@@ -50,5 +49,14 @@ public class DAOLibro {
             listaIDs.add(resultado.getInt("id"));
         } while (resultado.next());
         return listaIDs;
+    }
+
+    public static String modificarLibro(int idLibro, Libro libro) throws Exception {
+        statement = "UPDATE t_libros SET titulo = ? , autor = ? , cantidad = ? WHERE id = ?";
+        Connector.getConnection().ejecutarStatement(statement, libro.getTitulo(),
+                libro.getAutor(),
+                libro.getCantidad(),
+                idLibro);
+        return "El cliente se modificó en la base de datos correctamente.\n";
     }
 }
