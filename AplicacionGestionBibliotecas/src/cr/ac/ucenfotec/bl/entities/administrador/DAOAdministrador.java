@@ -50,4 +50,13 @@ public class DAOAdministrador {
         } while (resultado.next());
         return listaIDs;
     }
+
+    public static String modificarAdministrador(int idAdministrador, Administrador administrador) throws Exception {
+        statement = "UPDATE t_administradores SET nombreCompleto = ? , cedula = ? , correoElectronico = ? WHERE id = ?";
+        Connector.getConnection().ejecutarStatement(statement, administrador.getNombreCompleto(),
+                administrador.getCedula(),
+                administrador.getCorreoElectronico(),
+                idAdministrador);
+        return "El administrador se modificó en la base de datos correctamente.\n";
+    }
 }

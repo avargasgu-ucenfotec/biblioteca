@@ -24,4 +24,9 @@ public class GestorAdministrador {
             }
         }
     }
+
+    public static String modificarAdministrador(int idAdministrador, String nombreCompleto, String cedula, String correoElectronico) throws Exception {
+        Administrador nuevoAdministrador = new Administrador(nombreCompleto, cedula, correoElectronico);
+        return DAOAdministrador.modificarAdministrador(idAdministrador, nuevoAdministrador);
+    }
 }

@@ -32,6 +32,9 @@ public class Controller {
             case 6:
                 listarLibros();
                 break;
+            case 7:
+                modificarAdministrador();
+                break;
             case 0:
                 System.out.println("Cerrando el programa...");
                 break;
@@ -108,5 +111,31 @@ public class Controller {
         for (HashMap.Entry<Integer, Libro> pareja : listaLibrosID.entrySet()) {
             System.out.println("ID: " + pareja.getKey() + ", Libro: " + pareja.getValue());
         }
+    }
+
+    public static void modificarAdministrador() throws Exception {
+        listarAdministradores();
+        int idAdministrador;
+
+        System.out.print("Ingrese el ID del administrador por modificar: ");
+        idAdministrador = Integer.parseInt(Menu.leerTexto());
+        while (idAdministrador <= 0) {
+            System.out.println("El ID del administrador debe ser mayor o igual que 1. Ingrese el ID de nuevo: ");
+            idAdministrador = Integer.parseInt(Menu.leerTexto());
+        }
+
+        String nombreCompleto;
+        String cedula;
+        String correoElectronico;
+
+        System.out.print("Ingrese el nuevo nombre completo del administrador: ");
+        nombreCompleto = Menu.leerTexto();
+        System.out.print("Ingrese el nuevo número de cédula del administrador: ");
+        cedula = Menu.leerTexto();
+        System.out.print("Ingrese el nuevo correo electrónico del administrador: ");
+        correoElectronico = Menu.leerTexto();
+
+        String mensaje = GestorAdministrador.modificarAdministrador(idAdministrador, nombreCompleto, cedula, correoElectronico);
+        System.out.println(mensaje);
     }
 }
