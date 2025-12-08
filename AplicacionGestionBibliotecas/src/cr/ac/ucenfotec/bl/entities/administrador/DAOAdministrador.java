@@ -2,6 +2,9 @@ package cr.ac.ucenfotec.bl.entities.administrador;
 
 import cr.ac.ucenfotec.dl.Connector;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 public class DAOAdministrador {
 
     //Atributos
@@ -17,5 +20,34 @@ public class DAOAdministrador {
                 + "');";
         Connector.getConnection().ejecutarStatement(statement);
         return "El administrador se registró correctamente en la base de datos.\n";
+    }
+
+    public static ArrayList<Administrador> listarAdministradores() throws Exception {
+        ArrayList<Administrador> listaAdministradores = new ArrayList<>();
+        query = "SELECT * FROM t_administradores";
+        ResultSet resultado = Connector.getConnection().ejecutarQuery(query);
+        if(!resultado.next()){
+            return null;
+        }
+        do {
+            Administrador administradorTemp = new Administrador(resultado.getNString("nombreCompleto"),
+                    resultado.getNString("cedula"),
+                    resultado.getNString("correoElectronico"));
+            listaAdministradores.add(administradorTemp);
+        } while (resultado.next());
+        return listaAdministradores;
+    }
+
+    public static ArrayList<Integer> listarIDs() throws Exception {
+        ArrayList<Integer> listaIDs = new ArrayList<>();
+        query = "SELECT * FROM t_administradores";
+        ResultSet resultado = Connector.getConnection().ejecutarQuery(query);
+        if(!resultado.next()){
+            return null;
+        }
+        do {
+            listaIDs.add(resultado.getInt("id"));
+        } while (resultado.next());
+        return listaIDs;
     }
 }

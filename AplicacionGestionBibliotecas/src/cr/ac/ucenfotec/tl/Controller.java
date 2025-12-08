@@ -1,7 +1,11 @@
 package cr.ac.ucenfotec.tl;
 
+import cr.ac.ucenfotec.bl.entities.administrador.Administrador;
 import cr.ac.ucenfotec.bl.logic.*;
 import cr.ac.ucenfotec.ui.Menu;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Controller {
 
@@ -16,6 +20,9 @@ public class Controller {
                 break;
             case 3:
                 agregarLibro();
+                break;
+            case 4:
+                listarAdministradores();
                 break;
             case 0:
                 System.out.println("Cerrando el programa...");
@@ -69,5 +76,13 @@ public class Controller {
         cantidad = Integer.parseInt(Menu.leerTexto());
 
         System.out.println(GestorLibro.agregarLibro(titulo, autor, cantidad));
+    }
+
+    public static void listarAdministradores() throws Exception {
+        HashMap<Integer, Administrador> listaAdministradoresID = new HashMap<>();
+        GestorAdministrador.listarAdministradoresID(listaAdministradoresID);
+        for (HashMap.Entry<Integer, Administrador> pareja : listaAdministradoresID.entrySet()) {
+            System.out.println("ID: " + pareja.getKey() + ", Administrador: " + pareja.getValue());
+        }
     }
 }

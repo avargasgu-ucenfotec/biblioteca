@@ -20,4 +20,11 @@ public class DBAccess {
         statement = connection.createStatement();
         statement.executeUpdate(pStatement);
     }
+
+    public ResultSet ejecutarQuery(String query) throws SQLException {
+        ResultSet resultado;
+        statement = connection.createStatement();
+        resultado = statement.executeQuery(query);
+        return resultado;
+    }
 }
