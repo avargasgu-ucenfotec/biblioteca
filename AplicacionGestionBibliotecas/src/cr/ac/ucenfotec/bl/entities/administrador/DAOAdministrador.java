@@ -59,4 +59,10 @@ public class DAOAdministrador {
                 idAdministrador);
         return "El administrador se modificó en la base de datos correctamente.\n";
     }
+
+    public static String eliminarAdministrador(int idAdministrador) throws Exception {
+        statement = "DELETE FROM t_administradores WHERE id = ?";
+        Connector.getConnection().ejecutarStatement(statement, idAdministrador);
+        return "El administrador se eliminó de la base de datos correctamente (si existía).\n";
+    }
 }

@@ -41,6 +41,9 @@ public class Controller {
             case 9:
                 modificarLibro();
                 break;
+            case 10:
+                eliminarAdministrador();
+                break;
             case 0:
                 System.out.println("Cerrando el programa...");
                 break;
@@ -194,6 +197,19 @@ public class Controller {
         cantidad = Integer.parseInt(Menu.leerTexto());
 
         String mensaje = GestorLibro.modificarLibro(idLibro, titulo, autor, cantidad);
+        System.out.println(mensaje);
+    }
+
+    public static void eliminarAdministrador() throws Exception {
+        listarAdministradores();
+        int idAdministrador;
+        System.out.print("Ingrese el ID del administrador por eliminar: ");
+        idAdministrador = Integer.parseInt(Menu.leerTexto());
+        while (idAdministrador <= 0) {
+            System.out.println("El ID del administrador debe ser mayor o igual que 1. Ingrese el ID de nuevo: ");
+            idAdministrador = Integer.parseInt(Menu.leerTexto());
+        }
+        String mensaje = GestorAdministrador.eliminarAdministrador(idAdministrador);
         System.out.println(mensaje);
     }
 }
