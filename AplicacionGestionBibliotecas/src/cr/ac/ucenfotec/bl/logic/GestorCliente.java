@@ -26,4 +26,9 @@ public class GestorCliente {
             }
         }
     }
+
+    public static String modificarCliente(int idCliente, String nombreCompleto, String cedula, String correoElectronico) throws Exception {
+        Cliente nuevoCliente = new Cliente(nombreCompleto, cedula, correoElectronico);
+        return DAOCliente.modificarCliente(idCliente, nuevoCliente);
+    }
 }

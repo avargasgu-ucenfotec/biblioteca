@@ -35,6 +35,9 @@ public class Controller {
             case 7:
                 modificarAdministrador();
                 break;
+            case 8:
+                modificarCliente();
+                break;
             case 0:
                 System.out.println("Cerrando el programa...");
                 break;
@@ -136,6 +139,32 @@ public class Controller {
         correoElectronico = Menu.leerTexto();
 
         String mensaje = GestorAdministrador.modificarAdministrador(idAdministrador, nombreCompleto, cedula, correoElectronico);
+        System.out.println(mensaje);
+    }
+
+    public static void modificarCliente() throws Exception {
+        listarClientes();
+        int idCliente;
+
+        System.out.print("Ingrese el ID del cliente por modificar: ");
+        idCliente = Integer.parseInt(Menu.leerTexto());
+        while (idCliente <= 0) {
+            System.out.println("El ID del cliente debe ser mayor o igual que 1. Ingrese el ID de nuevo: ");
+            idCliente = Integer.parseInt(Menu.leerTexto());
+        }
+
+        String nombreCompleto;
+        String cedula;
+        String correoElectronico;
+
+        System.out.print("Ingrese el nuevo nombre completo del cliente: ");
+        nombreCompleto = Menu.leerTexto();
+        System.out.print("Ingrese el nuevo número de cédula del cliente: ");
+        cedula = Menu.leerTexto();
+        System.out.print("Ingrese el nuevo correo electrónico del cliente: ");
+        correoElectronico = Menu.leerTexto();
+
+        String mensaje = GestorCliente.modificarCliente(idCliente, nombreCompleto, cedula, correoElectronico);
         System.out.println(mensaje);
     }
 }

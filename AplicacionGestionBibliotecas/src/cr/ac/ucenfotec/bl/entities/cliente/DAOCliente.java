@@ -51,4 +51,13 @@ public class DAOCliente {
         } while (resultado.next());
         return listaIDs;
     }
+
+    public static String modificarCliente(int idCliente, Cliente cliente) throws Exception {
+        statement = "UPDATE t_clientes SET nombreCompleto = ? , cedula = ? , correoElectronico = ? WHERE id = ?";
+        Connector.getConnection().ejecutarStatement(statement, cliente.getNombreCompleto(),
+                cliente.getCedula(),
+                cliente.getCorreoElectronico(),
+                idCliente);
+        return "El cliente se modificó en la base de datos correctamente.\n";
+    }
 }

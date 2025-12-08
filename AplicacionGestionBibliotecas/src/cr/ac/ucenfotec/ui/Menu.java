@@ -24,6 +24,7 @@ public class Menu {
             System.out.println("[ 5] Listar clientes");
             System.out.println("[ 6] Listar libros de la biblioteca");
             System.out.println("[ 7] Modificar administrador");
+            System.out.println("[ 8] Modificar cliente");
             System.out.println("[ 0] Salir");
             System.out.print("\nSeleccione una opción: ");
             try {
